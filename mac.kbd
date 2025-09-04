@@ -8,11 +8,13 @@
 )
 
 (defalias
-  mc  C-up         ;; Mission Control
-  sls M-spc        ;; Spotlight Search
-  qwr (layer-switch qwerty)  ;; Switch to QWERTY
-  cnr (layer-switch canary)  ;; Switch to Canary
+  mc  C-up ;; Mission Control
+  sls M-spc ;; Spotlight Search
+  qwr (layer-switch qwerty) ;; Switch to QWERTY
+  cnr (layer-switch canary) ;; Switch to Canary
   grv (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
+  nav (layer-while-held navigation) ;; Navigation layer
+  spc (tap-hold-press-timeout 200 9999 spc @nav spc) ;; Space with Control layer
 )
 
 (deflayer qwerty
@@ -21,7 +23,7 @@
   tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
   caps       a     s     d     f     g     h     j     k     l     ;     '       ret
   lsft          z     x     c     v     b     n     m     ,     .     /         rsft
-  fn    lctl  lalt  lmet               spc                rmet   ralt
+  fn    lctl  lalt  lmet               @spc               rmet   ralt
 )
 
 (deflayer canary
@@ -31,7 +33,16 @@
   tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
   caps       c     r     s     t     g     m     n     e     i     a     '       ret
   lsft          j     v     d     k     _     x     h     /     ,     .         rsft
-  fn     lctl  lalt  lmet              spc                rmet   ralt
+  fn     lctl  lalt  tab               @spc               rmet   ralt
+)
+
+(deflayer navigation
+  _     _     _     _     _     _     _     _     _     _     _     _     _
+  _     _     _     _     _     _     _     _     _     _     _     _     _        _
+  _        1     2     3     4     5     6     7     8     9     0     _     _     _
+  _          _     esc   tab   _     _     lft   down  up    rght  ret   _         _
+  _             _     _     _     _     _     _     _     _     _     _            _
+  _     _     _     _                   _                 _      _
 )
 
 (deflayer layers
