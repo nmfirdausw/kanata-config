@@ -26,8 +26,11 @@
   qwr (layer-switch qwerty) ;; Switch to QWERTY
   cnr (layer-switch canary) ;; Switch to Canary
   grv (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
-  nav (layer-while-held navigation) ;; Navigation layer
-  spc (tap-hold-press-timeout 200 9999 spc @nav spc) ;; Space with Control layer
+  ctr (layer-while-held control) ;; Control layer
+  sym (layer-while-held symbols) ;; Navigation layer
+  spc (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
+  tab (tap-hold-press-timeout 200 9999 tab @sym tab) ;; Tab with Symbols layer
+  bspc (tap-hold-press-timeout 200 9999 bspc @sym bspc) ;; Backspace with Symbols layer
 
   ;; Home row mods for canary layout
   c (tap-hold-release-keys 200 200 c lctl $canary-left-hand-keys)    ;; C with Control
@@ -56,24 +59,33 @@
   @grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
   caps       @c    @r    @s    @t    g     m     @n    @e    @i    @a    '       ret
-  lsft          j     v     d     k     _     x     h     /     ,     .         rsft
-  fn     lctl  lalt  tab               @spc               rmet   ralt
+  q             j     v     d     k     _     x     h     /     ,     .         rsft
+  fn     lctl  lalt  @tab              @spc               @bspc  ralt
 )
 
-(deflayer navigation
+(deflayer control
   _     _     _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     _     _     _     _     _     _     _     _     _        _
-  _        1     2     3     4     5     6     7     8     9     0     _     _     _
-  _          _     esc   tab   _     _     lft   down  up    rght  ret   _         _
+  _        _     esc   tab   _     _     _     _     _     bspc  _     _     _     _
+  _          home  end  pgup  pgdn   _     lft   down  up    rght  ret   _         _
   _             _     _     _     _     _     _     _     _     _     _            _
   _     _     _     _                   _                 _      _
 )
 
-(deflayer layers
+(deflayer symbols
   _     _    _      _     _     _     _     _     _     _     _     _     _
+  _     _    _      _     _     _     _     _     _     _     _     _     _        _
+  _        S-9   S-[   S-]   S-0   S-7   S-5   [     S-,   S-.   ]     _     _     _
+  _          S-6   S-4  -     S-=    S-\   /     S-8   S-3   ;     S-;   _         _	
+  `             '     S-'   S--   \     _     S-`   =     S-/   S-2   S-1          _
+  _     _     _     _                   _                 _      _
+)
+
+(deflayer layers
+ _     _    _      _     _     _     _     _     _     _     _     _     _
   _     @qwr @cnr   _     _     _     _     _     _     _     _     _     _        _
   _        _     _     _     _     _     _     _     _     _     _     _     _     _
   _          _     _     _     _     _     _     _     _     _     _     _         _
   _             _     _     _     _     _     _     _     _     _     _            _
   _     _     _     _                   _                 _      _
-)
+)	
