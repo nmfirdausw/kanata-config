@@ -33,8 +33,6 @@
   ctr (layer-while-held control) ;; Control layer
   sym (layer-while-held symbols) ;; Navigation layer
   spc (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
-  tab (tap-hold-press-timeout 200 9999 tab @sym tab) ;; Tab with Symbols layer
-  bspc (tap-hold-press-timeout 200 9999 bspc @sym bspc) ;; Backspace with Symbols layer
 
   ;; Home row mods for canary layout
   c (tap-hold-release-keys 200 200 c lctl $canary-left-hand-keys)    ;; C with Control
@@ -73,7 +71,7 @@
   tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
   caps       @c    @r    @s    @t    g     m     @n    @e    @i    @a    '       ret
   q             j     v     d     k     _     x     h     /     ,     .         rsft
-  fn     lctl  lalt  @tab              @spc               @bspc  ralt
+  fn     lctl  lalt  @sym              @spc               @sym   ralt
 )
 
 (deflayer control
