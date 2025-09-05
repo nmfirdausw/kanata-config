@@ -70,6 +70,50 @@ Currently empty - reserved for Windows-specific configuration.
 
 ## Installation & Usage
 
+### Prerequisites
+
+#### macOS Requirements
+For macOS users, you **must** install the Karabiner DriverKit VirtualHIDDevice before using Kanata:
+
+1. **Download and install** [Karabiner-DriverKit-VirtualHIDDevice](https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice)
+2. **Grant system extension permissions** when prompted
+3. **Restart your Mac** after installation
+
+**Optional: Auto-launch Daemon Setup**
+To automatically start the Karabiner daemon on boot:
+
+1. **Copy the plist file:**
+   ```bash
+   sudo cp org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist /Library/LaunchDaemons/
+   ```
+
+2. **Set proper permissions:**
+   ```bash
+   sudo chown root:wheel /Library/LaunchDaemons/org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist
+   sudo chmod 644 /Library/LaunchDaemons/org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist
+   ```
+
+3. **Create log directory:**
+   ```bash
+   sudo mkdir -p /var/log/karabiner
+   sudo chown root:wheel /var/log/karabiner
+   ```
+
+4. **Load and start the service:**
+   ```bash
+   # Load the service (registers it with launchd)
+   sudo launchctl load /Library/LaunchDaemons/org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist
+   
+   # Start the service immediately
+   sudo launchctl start org.pqrs.Karabiner-VirtualHIDDevice-Daemon
+   ```
+
+For more details, see: [Run via launchd](https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice?tab=readme-ov-file#run-karabiner-virtualhiddevice-daemon-via-launchd)
+
+> ⚠️ **Important**: Without this driver, Kanata will not work on macOS. This is required for low-level keyboard input handling.
+
+### Install Kanata
+
 1. **Install Kanata**
    - Download from [releases](https://github.com/jtroo/kanata/releases)
    - Or build from source: `cargo install kanata`
