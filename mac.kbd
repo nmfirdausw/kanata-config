@@ -1,3 +1,7 @@
+(defcfg
+  concurrent-tap-hold true
+)
+
 (defsrc
   esc   f1    f2    f3    f4    f5    f6    f7    f8    f9    f10   f11   f12
   grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
@@ -44,6 +48,15 @@
 
 )
 
+(defchordsv2
+  (w e) esc 50 all-released (qwerty)
+  (s d) tab 50 all-released (qwerty)
+  (i o) bspc 50 all-released (qwerty)
+  (k l) bspc 50 all-released (qwerty)
+  (l ;) ret 50 all-released (qwerty)
+  (j ;) ret 50 all-released (qwerty)
+)
+
 (deflayer qwerty
   esc   🔅    🔆    @mc   @sls  f5    f6    ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   @grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc
@@ -66,7 +79,7 @@
 (deflayer control
   _     _     _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     _     _     _     _     _     _     _     _     _        _
-  _        _     esc   tab   _     _     _     _     _     bspc  _     _     _     _
+  _        1     2     3     4     5     6     7     8     9     0     _     _     _
   _          home  end  pgup  pgdn   _     lft   down  up    rght  ret   _         _
   _             _     _     _     _     _     _     _     _     _     _            _
   _     _     _     _                   _                 _      _
