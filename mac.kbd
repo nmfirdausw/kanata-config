@@ -49,12 +49,12 @@
 )
 
 (defchordsv2
-  (w e) esc 50 all-released (qwerty)
-  (s d) tab 50 all-released (qwerty)
-  (i o) bspc 50 all-released (qwerty)
-  (k l) bspc 50 all-released (qwerty)
-  (l ;) ret 50 all-released (qwerty)
-  (j ;) ret 50 all-released (qwerty)
+  (w e) esc 50 first-release (qwerty)
+  (s d) tab 50 first-release (qwerty)
+  (i o) bspc 50 first-release (qwerty)
+  (k l) bspc 50 first-release (qwerty)
+  (l ;) ret 50 first-release (qwerty)
+  (j ;) ret 50 first-release (qwerty)
 )
 
 (deflayer qwerty
