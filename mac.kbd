@@ -52,7 +52,7 @@
   (i o) bspc 50 first-release (qwerty)
   (k l) bspc 50 first-release (qwerty)
   (l ;) ret 50 first-release (qwerty)
-  (j ;) ret 50 first-release (qwerty)
+  (j ;) ret 200 first-release (qwerty)
 )
 
 (deflayer qwerty
@@ -87,7 +87,7 @@
   _     _    _      _     _     _     _     _     _     _     _     _     _
   _     _    _      _     _     _     _     _     _     _     _     _     _        _
   _        S-]   S-9   S-0   S-[   S-7   S-5   [     S-,   ]     S-.   _     _     _
-  _          '     S-'   S-3   S-8   /     =     -     S-=   S-6   S-4   _         _	
+  _          '     S-'   S-3   S-8   /     =     S-=   -     S-6   S-4   _         _	
   `             \     S-\   ;     S-;   _     S-`   S--   S-/   S-2   S-1          _
   _     _     _     _                   _                 _      _
 )
