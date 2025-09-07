@@ -31,7 +31,7 @@
   cnr (layer-switch canary) ;; Switch to Canary
   grv (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
   ctr (layer-while-held control) ;; Control layer
-  sym (layer-while-held symbols) ;; Navigation layer
+  sym (layer-while-held symbols) ;; Symbol layer
   spc (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
 
   ;; Home row mods for canary layout
@@ -52,9 +52,9 @@
   (i o) bspc 50 first-release (qwerty)
   (k l) bspc 50 first-release (qwerty)
   (l ;) ret 50 first-release (qwerty)
-  (j ;) ret 200 first-release (qwerty)
+  (j ;) ret 50 first-release (qwerty)
 )
-
+ 
 (deflayer qwerty
   esc   🔅    🔆    @mc   @sls  f5    f6    ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
   @grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc
@@ -83,20 +83,24 @@
   _     _     _     _                   _                 _      _
 )
 
+;;  !  @  #  $  %    ^  &  [  ]  '
+;;  }  (  )  {  +    <  -  =  >  "
+;;  ~  `  |  /  *    \  _  ?  ;  :
+
 (deflayer symbols
   _     _    _      _     _     _     _     _     _     _     _     _     _
   _     _    _      _     _     _     _     _     _     _     _     _     _        _
-  _        S-]   S-9   S-0   S-[   S-7   S-5   [     S-,   ]     S-.   _     _     _
-  _          '     S-'   S-3   S-8   /     =     S-=   -     S-6   S-4   _         _	
-  `             \     S-\   ;     S-;   _     S-`   S--   S-/   S-2   S-1          _
+  _        S-1   S-2   S-3   S-4   S-5   S-6   S-7   [     ]     '     _     _     _
+  _          S-]   S-9   S-0   S-[   S-=   S-,   -     =     S-.   S-'   _         _	
+  `             S-`   S-\   /   S-8     _     \     S--   S-/   ;     S-;          _
   _     _     _     _                   _                 _      _
 )
 
 (deflayer layers
- _     _    _      _     _     _     _     _     _     _     _     _     _
+  _     _    _      _     _     _     _     _     _     _     _     _     _
   _     @qwr @cnr   _     _     _     _     _     _     _     _     _     _        _
   _        _     _     _     _     _     _     _     _     _     _     _     _     _
   _          _     _     _     _     _     _     _     _     _     _     _         _
   _             _     _     _     _     _     _     _     _     _     _            _
   _     _     _     _                   _                 _      _
-)	
+)
