@@ -40,7 +40,7 @@ The main configuration file for macOS with advanced features including:
 - **Symbols Layer**: Programming symbols and special characters
 - **Layers Switch**: Quick switching between QWERTY and Canary
 
-**Chord Combinations**
+**Chord Combinations** (50ms timeout)
 - `W + E` → Escape (QWERTY layer)
 - `S + D` → Tab (QWERTY layer)
 - `I + O` → Backspace (QWERTY layer)
@@ -66,7 +66,10 @@ The main configuration file for macOS with advanced features including:
 - Layer switching via grave key hold
 
 ### `win.kbd` - Windows Configuration
-Currently empty - reserved for Windows-specific configuration.
+Reserved for Windows-specific configuration.
+
+### `org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist` - Launch Daemon
+Launchd configuration file for automatically starting the Karabiner VirtualHID daemon on macOS.
 
 ## Installation & Usage
 
@@ -194,11 +197,11 @@ Provides navigation and editing shortcuts:
 Programming symbols and special characters:
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│  (  │  [  │  ]  │  )  │  &  │  %  │  [  │  <  │  >  │  ]  │
+│  !  │  @  │  #  │  $  │  %  │  ^  │  &  │  [  │  ]  │  '  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│  ^  │  $  │  -  │  +  │  |  │  /  │  *  │  #  │  ;  │  :  │
+│  }  │  (  │  )  │  {  │  +  │  <  │  -  │  =  │  >  │  "  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│  `  │  '  │  "  │  _  │  \  │  ~  │  =  │  ?  │  @  │  !  │
+│  `  │  ~  │  |  │  /  │  *  │  \  │  _  │  ?  │  ;  │  :  │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
@@ -216,6 +219,7 @@ Programming symbols and special characters:
 
 ### Modifying Timings
 - Tap-hold timing: Currently set to 200ms
+- Chord timeout: Set to 50ms for all combinations
 - Adjust in `tap-hold-release-keys` and `tap-hold-press-timeout`
 
 ### Creating Custom Chords
