@@ -29,10 +29,12 @@
   sls M-spc ;; Spotlight Search
   qwr (layer-switch qwerty) ;; Switch to QWERTY
   cnr (layer-switch canary) ;; Switch to Canary
-  grv (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
+  grl (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
   ctr (layer-while-held control) ;; Control layer
   sym (layer-while-held symbols) ;; Symbol layer
   spc (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
+  tab (tap-hold-press-timeout 200 9999 tab @sym tab) ;; Tab with Symbol layer
+  grv (tap-hold-press-timeout 200 9999 grv @sym grv) ;; Grave with Symbol layer
 
   ;; Home row mods for canary layout
   c (tap-hold-release-keys 200 200 c lctl $canary-left-hand-keys)    ;; C with Control
@@ -43,21 +45,16 @@
   e (tap-hold-release-keys 200 200 e rsft $canary-right-hand-keys)   ;; E with Shift
   i (tap-hold-release-keys 200 200 i ralt $canary-right-hand-keys)   ;; I with Alt
   a (tap-hold-release-keys 200 200 a rctl $canary-right-hand-keys)   ;; A with Control
-
 )
 
 (defchordsv2
-  (w e) esc 50 first-release (qwerty)
-  (s d) tab 50 first-release (qwerty)
-  (i o) bspc 50 first-release (qwerty)
-  (k l) bspc 50 first-release (qwerty)
-  (l ;) ret 50 first-release (qwerty)
-  (j ;) ret 50 first-release (qwerty)
+  (s d) tab 50 all-released (qwerty symbols layers)
+  (k l) bspc 50 all-released (qwerty symbols layers)
 )
- 
+
 (deflayer qwerty
   esc   🔅    🔆    @mc   @sls  f5    f6    ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  @grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
   caps       a     s     d     f     g     h     j     k     l     ;     '       ret
   lsft          z     x     c     v     b     n     m     ,     .     /         rsft
@@ -67,32 +64,32 @@
 (deflayer canary
 
   esc   🔅    🔆    @mc   @sls  f5    f6    ◀◀    ▶⏸    ▶▶    🔇    🔉    🔊
-  @grv  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
   caps       @c    @r    @s    @t    g     m     @n    @e    @i    @a    '       ret
   q             j     v     d     k     _     x     h     /     ,     .         rsft
-  fn     lctl  lalt  @sym              @spc               @sym   ralt
+  fn     lctl  lalt  @tab              @spc               @grv   ralt
 )
 
 (deflayer control
   _     _     _     _     _     _     _     _     _     _     _     _     _
   _     _     _     _     _     _     _     _     _     _     _     _     _        _
   _        1     2     3     4     5     6     7     8     9     0     _     _     _
-  _          home  end   pgup  pgdn  _     lft   down  up    rght  ret   _         _
-  _             _     _     _     _     _     _     _     _     _     _            _
+  _          esc   tab   spc   _     _     lft   down  up    rght  ret   _         _
+  _             _     _     _     _     _     home  pgdn  pgup  end   _            _
   _     _     _     _                   _                 _      _
 )
 
-;;  !  @  #  $  %    ^  &  [  ]  '
-;;  }  (  )  {  +    <  -  =  >  "
-;;  ~  `  |  /  *    \  _  ?  ;  :
+;;  !  @  #  $  %    ^  *  [  ]  '
+;;  ;  (  )  {  +    <  }  =  >  "
+;;  `  ~  |  /  &    \  -  _  ?  :
 
 (deflayer symbols
   _     _    _      _     _     _     _     _     _     _     _     _     _
   _     _    _      _     _     _     _     _     _     _     _     _     _        _
-  _        S-1   S-2   S-3   S-4   S-5   S-6   S-7   [     ]     '     _     _     _
-  _          S-]   S-9   S-0   S-[   S-=   S-,   -     =     S-.   S-'   _         _	
-  `             S-`   S-\   /   S-8     _     \     S--   S-/   ;     S-;          _
+  _        S-1   S-2   S-3   S-4   S-5   S-6   S-8   [     ]     '     _     _     _
+  _          ;     S-9   S-0   S-[   S-=   S-,   S-]   =     S-.   S-'   _         _	
+  `             S-`   S-\   /   S-7     _     \     -     S--   S-/   S-;          _
   _     _     _     _                   _                 _      _
 )
 
