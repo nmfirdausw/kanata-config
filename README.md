@@ -32,8 +32,8 @@ The main configuration file for macOS with advanced features including:
 
 **Multi-Key Layer Access**
 - **Space**: Tap for Space, Hold for Control layer (200ms tap, 9999ms hold)
-- **Tab**: Tap for Tab, Hold for Symbol layer (200ms tap, 9999ms hold)
-- **Grave**: Tap for Grave, Hold for Symbol layer (200ms tap, 9999ms hold)
+- **Return**: Tap for Return, Hold for Symbol layer (200ms tap, 9999ms hold)
+- **Escape**: Tap for Escape, Hold for Symbol layer (200ms tap, 9999ms hold)
 
 **Layer System**
 - **Control Layer**: Navigation keys and shortcuts (arrows, home, end, esc, tab)
@@ -190,15 +190,15 @@ Provides navigation and editing shortcuts:
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
-#### Symbols Layer (Hold Tab/Grave)
+#### Symbols Layer (Hold Return/Escape)
 Programming symbols and special characters:
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-│  !  │  @  │  #  │  $  │  %  │  ^  │  *  │  [  │  ]  │  '  │
+│  !  │  (  │  )  │  {  │  %  │  ^  │  }  │  [  │  ]  │  "  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│  ;  │  (  │  )  │  {  │  +  │  <  │  }  │  =  │  >  │  "  │
+│  ;  │  @  │  &  │  $  │  +  │  <  │  -  │  =  │  >  │  :  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│  `  │  ~  │  |  │  /  │  &  │  \  │  -  │  _  │  ?  │  :  │
+│  ~  │  #  │  |  │  /  │  *  │  \  │  _  │  ?  │  '  │  `  │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
 
