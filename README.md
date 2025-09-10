@@ -73,12 +73,12 @@ The Windows configuration provides the same powerful features as the macOS versi
 
 **Home Row Mods (Canary Layout)**
 - `C` → Control (left hand)
-- `R` → Alt (left hand) 
+- `R` → Meta/Win (left hand) 
 - `S` → Shift (left hand)
-- `T` → Meta/Win (left hand)
-- `N` → Meta/Win (right hand)
+- `T` → Alt (left hand)
+- `N` → Alt (right hand)
 - `E` → Shift (right hand)
-- `I` → Alt (right hand)
+- `I` → Meta/Win (right hand)
 - `A` → Control (right hand)
 
 **Multi-Key Layer Access**
@@ -94,6 +94,13 @@ The Windows configuration provides the same powerful features as the macOS versi
 **Chord Combinations** (50ms timeout, all layers)
 - `S + D` → Tab
 - `K + L` → Backspace
+
+**Windows-Optimized Home Row Arrangement**
+The Windows configuration uses an optimized modifier arrangement different from macOS:
+- **Win key on R & I**: More accessible finger positions for Windows shortcuts (Win+R, Win+L, etc.)
+- **Alt key on T & N**: Better ergonomics for common Alt+Tab and Alt+F4 combinations
+- **Symmetric layout**: Left and right hand modifiers mirror each other for consistency
+- **Stronger finger emphasis**: Places Windows key on stronger ring fingers (R, I)
 
 **Windows-Specific Adaptations**
 - Uses Windows key (Meta) instead of Cmd for modifier combinations
@@ -216,13 +223,25 @@ Canary is built on several core principles:
 - Reduces awkward same-finger sequences
 - Optimizes letter placement based on English frequency patterns
 
-#### Canary Matrix Layout
+#### Canary Matrix Layout (macOS)
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │  W  │  L  │  Y  │  P  │  B  │  Z  │  F  │  O  │  U  │  '  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │  C  │  R  │  S  │  T  │  G  │  M  │  N  │  E  │  I  │  A  │
 │ Ctrl│ Alt │Shift│ Cmd │     │     │ Cmd │Shift│ Alt │Ctrl │
+├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│  Q  │  J  │  V  │  D  │  K  │  X  │  H  │  /  │  ,  │  .  │
+└─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+```
+
+#### Canary Matrix Layout (Windows - Optimized)
+```
+┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+│  W  │  L  │  Y  │  P  │  B  │  Z  │  F  │  O  │  U  │  '  │
+├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
+│  C  │  R  │  S  │  T  │  G  │  M  │  N  │  E  │  I  │  A  │
+│ Ctrl│ Win │Shift│ Alt │     │     │ Alt │Shift│ Win │Ctrl │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │  Q  │  J  │  V  │  D  │  K  │  X  │  H  │  /  │  ,  │  .  │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
@@ -299,6 +318,7 @@ Add new chord combinations in the `defchordsv2` section:
 #### Windows vs macOS Configuration
 - **Function Keys**: Windows config omits macOS-specific media keys (brightness, volume, etc.)
 - **Modifier Keys**: Uses Windows key (Meta) instead of Cmd key
+- **Home Row Mods**: Optimized arrangement with Win key on R/I and Alt on T/N for better Windows ergonomics
 - **System Integration**: No equivalent to Karabiner VirtualHIDDevice requirement
 - **Layout Structure**: Simplified defsrc without function row in Windows version
 - **Permissions**: Windows requires administrator rights vs macOS accessibility permissions
