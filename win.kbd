@@ -1,0 +1,96 @@
+(defcfg
+  concurrent-tap-hold true
+)
+
+(defsrc
+  grv   1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps       a     s     d     f     g     h     j     k     l     ;     '       ret
+  lsft          z     x     c     v     b     n     m     ,     .     /         rsft
+  lctl  lalt  lmet                     spc                rmet   ralt
+)
+
+(defvar
+  canary-left-hand-keys (
+    w l y p b
+    c r s t g
+    q j v d k
+  )
+  canary-right-hand-keys (
+    z f o u ;
+    m n e i a
+    x h / , .
+  )
+)
+
+(defalias
+  mc  C-up ;; Mission Control
+  sls M-spc ;; Spotlight Search
+  qwr (layer-switch qwerty) ;; Switch to QWERTY
+  cnr (layer-switch canary) ;; Switch to Canary
+  grl (tap-hold 200 200 grv (layer-while-held layers)) ;; Hold grave for layer switching
+  ctr (layer-while-held control) ;; Control layer
+  sym (layer-while-held symbols) ;; Symbol layer:
+  spc (tap-hold-press-timeout 200 9999 spc @ctr spc) ;; Space with Control layer
+  ret (tap-hold-press-timeout 200 9999 ret @sym ret) ;; Tab with Symbol layer
+  esc (tap-hold-press-timeout 200 9999 esc @sym esc) ;; Grave with Symbol layer
+
+  ;; Home row mods for canary layout
+  c (tap-hold-release-keys 200 200 c lctl $canary-left-hand-keys)    ;; C with Control
+  r (tap-hold-release-keys 200 200 r lalt $canary-left-hand-keys)    ;; R with Alt
+  s (tap-hold-release-keys 200 200 s lsft $canary-left-hand-keys)    ;; S with Shift
+  t (tap-hold-release-keys 200 200 t lmet $canary-left-hand-keys)    ;; T with Meta
+  n (tap-hold-release-keys 200 200 n rmet $canary-right-hand-keys)   ;; N with Meta
+  e (tap-hold-release-keys 200 200 e rsft $canary-right-hand-keys)   ;; E with Shift
+  i (tap-hold-release-keys 200 200 i ralt $canary-right-hand-keys)   ;; I with Alt
+  a (tap-hold-release-keys 200 200 a rctl $canary-right-hand-keys)   ;; A with Control
+)
+
+(defchordsv2
+  (s d) tab 50 all-released (qwerty symbols layers)
+  (k l) bspc 50 all-released (qwerty symbols layers)
+)
+
+(deflayer qwerty
+  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps       a     s     d     f     g     h     j     k     l     ;     '       ret
+  lsft          z     x     c     v     b     n     m     ,     .     /         rsft
+  lctl  lalt  lmet                     @spc               rmet   ralt
+)
+
+(deflayer canary
+  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
+  caps       @c    @r    @s    @t    g     m     @n    @e    @i    @a    '       ret
+  q             j     v     d     k     _     x     h     /     ,     .         rsft
+  lctl  lalt  @esc                     @spc               @ret   ralt
+)
+
+(deflayer control
+  _     _     _     _     _     _     _     _     _     _     _     _     _        _
+  _        1     2     3     4     5     6     7     8     9     0     _     _     _
+  _          lctl lalt lsft lmet     _     lft   down  up    rght  ret   _         _
+  _             _     _     _     _     _     home  pgdn  pgup  end   _            _
+  _     _     _                         _                 _      _
+)
+
+;;  !  (  )  {  %    ^  }  [  ]  "
+;;  ;  @  &  $  +    <  -  =  >  :
+;;  ~  #  |  /  *    \  _  ?  '  `
+
+(deflayer symbols
+  _     _     _      _     _     _     _     _     _     _     _     _     _       _
+  _        S-1   S-9   S-0   S-[   S-5   S-6   S-]   [     ]     S-'   _     _     _
+  _          ;     S-2   S-7   S-4   S-=   S-,   -     =     S-.   S-;   _         _	
+  S-`           S-3   S-\   /     S-8   _     \     S--   S-/   '     S-`          _
+  _     _     _                        ret                _      _
+)
+
+(deflayer layers
+  _     @qwr @cnr   _     _     _     _     _     _     _     _     _     _        _
+  _        _     _     _     _     _     _     _     _     _     _     _     _     _
+  _          _     _     _     _     _     _     _     _     _     _     _         _
+  _             _     _     _     _     _     _     _     _     _     _            _
+  _     _     _                         _                 _      _
+)
