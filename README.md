@@ -63,7 +63,43 @@ The main configuration file for macOS with advanced features including:
 - Layer switching via grave key hold
 
 ### `win.kbd` - Windows Configuration
-Reserved for Windows-specific configuration.
+The Windows configuration provides the same powerful features as the macOS version with platform-appropriate adaptations:
+
+#### Layout Support
+- **QWERTY**: Standard QWERTY layout with enhancements
+- **Canary**: Alternative ergonomic layout optimized for English typing
+
+#### Key Features
+
+**Home Row Mods (Canary Layout)**
+- `C` → Control (left hand)
+- `R` → Alt (left hand) 
+- `S` → Shift (left hand)
+- `T` → Meta/Win (left hand)
+- `N` → Meta/Win (right hand)
+- `E` → Shift (right hand)
+- `I` → Alt (right hand)
+- `A` → Control (right hand)
+
+**Multi-Key Layer Access**
+- **Space**: Tap for Space, Hold for Control layer (200ms tap, 9999ms hold)
+- **Return**: Tap for Return, Hold for Symbol layer (200ms tap, 9999ms hold)
+- **Escape**: Tap for Escape, Hold for Symbol layer (200ms tap, 9999ms hold)
+
+**Layer System**
+- **Control Layer**: Navigation keys and shortcuts (arrows, home, end, numbers)
+- **Symbols Layer**: Programming symbols and special characters
+- **Layers Switch**: Quick switching between QWERTY and Canary
+
+**Chord Combinations** (50ms timeout, all layers)
+- `S + D` → Tab
+- `K + L` → Backspace
+
+**Windows-Specific Adaptations**
+- Uses Windows key (Meta) instead of Cmd for modifier combinations
+- Simplified function row without macOS-specific media keys
+- Optimized for Windows keyboard layouts and shortcuts
+- Compatible with standard Windows applications and system shortcuts
 
 ### `org.pqrs.Karabiner-VirtualHIDDevice-Daemon.plist` - Launch Daemon
 Launchd configuration file for automatically starting the Karabiner VirtualHID daemon on macOS.
@@ -118,18 +154,38 @@ For more details, see: [Run via launchd](https://github.com/pqrs-org/Karabiner-D
    - Download from [releases](https://github.com/jtroo/kanata/releases)
    - Or build from source: `cargo install kanata`
 
+#### Windows Requirements
+
+For Windows users, Kanata may require additional setup depending on your system:
+
+1. **Run as Administrator** (Recommended)
+   - Kanata needs elevated privileges for low-level keyboard access
+   - Right-click on Command Prompt/PowerShell and "Run as administrator"
+
+2. **Optional: Install Interception Driver**
+   - For better compatibility and performance
+   - Download from [Interception website](http://www.oblita.com/interception)
+   - Follow installation instructions for your Windows version
+
+3. **Windows Defender/Antivirus**
+   - You may need to add Kanata to your antivirus exceptions
+   - Low-level keyboard tools are sometimes flagged as suspicious
+
 2. **Run Configuration**
    ```bash
    # macOS
    kanata --cfg ~/.config/kanata/mac.kbd
    
-   # Windows (when configured)
-   kanata --cfg ~/.config/kanata/win.kbd
+   # Windows - Command Prompt/PowerShell
+   kanata --cfg %USERPROFILE%\.config\kanata\win.kbd
+   
+   # Windows - PowerShell alternative
+   kanata --cfg $env:USERPROFILE\.config\kanata\win.kbd
    ```
 
 3. **Setup as Service** (Recommended)
    - **macOS**: Use `launchd` to run Kanata automatically
-   - **Windows**: Use Task Scheduler or Windows Service
+   - **Windows**: Use Task Scheduler, Windows Service, or startup folder
 
 ## Layout Overview
 
@@ -232,8 +288,20 @@ Add new chord combinations in the `defchordsv2` section:
 - May need to disable System Integrity Protection for some features
 
 ### Windows Setup
-- May require running as administrator
-- Consider using Interception driver for better compatibility
+- **Administrator Rights**: Kanata requires administrator privileges for low-level keyboard access
+- **Interception Driver**: Consider installing for better compatibility and performance
+- **Antivirus Software**: May need to whitelist Kanata executable
+- **Windows Defender**: Add exception for Kanata if it gets flagged
+- **Startup Configuration**: Use Task Scheduler, Windows Service, or startup folder for auto-start
+
+### Platform Differences
+
+#### Windows vs macOS Configuration
+- **Function Keys**: Windows config omits macOS-specific media keys (brightness, volume, etc.)
+- **Modifier Keys**: Uses Windows key (Meta) instead of Cmd key
+- **System Integration**: No equivalent to Karabiner VirtualHIDDevice requirement
+- **Layout Structure**: Simplified defsrc without function row in Windows version
+- **Permissions**: Windows requires administrator rights vs macOS accessibility permissions
 
 ## Contributing
 
