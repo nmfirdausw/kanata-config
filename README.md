@@ -254,16 +254,21 @@ Canary is built on several core principles:
 - **Quote (')**: Strategically placed next to A to minimize conflicts with contractions
 
 #### Control Layer (Hold Space)
-Provides navigation and editing shortcuts:
+Provides direct modifier access and navigation shortcuts:
 ```
 ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
 │  1  │  2  │  3  │  4  │  5  │  6  │  7  │  8  │  9  │  0  │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
-│Ctrl │ Alt │Shift│ Cmd │     │  ←  │  ↓  │  ↑  │  →  │ Ret │
+│EsCtl│ Alt │Shift│ Cmd │     │  ←  │  ↓  │  ↑  │  →  │ Ret │
 ├─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┼─────┤
 │     │     │     │     │     │ Home│PgDn │PgUp │ End │     │
 └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
 ```
+
+**Enhanced Control Layer Features:**
+- **EsCtl**: Tap for Escape, Hold for Control - provides dual functionality for the most common modifier
+- **Direct Modifiers**: Access to Alt, Shift, and Cmd for complex shortcuts while in control layer
+- **Navigation**: Arrow keys, Home/End, Page Up/Down for efficient document navigation
 
 #### Symbols Layer (Hold Return/Escape)
 Programming symbols and special characters:
