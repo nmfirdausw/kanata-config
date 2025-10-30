@@ -52,20 +52,20 @@
   (k l) bspc 50 all-released (qwerty symbols layers)
 )
 
-(deflayer qwerty
-  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
-  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
-  caps       a     s     d     f     g     h     j     k     l     ;     '       ret
-  lsft          z     x     c     v     b     n     m     ,     .     /         rsft
-  lctl  lmet  lalt                     @spc               ralt   rmet
-)
-
 (deflayer canary
   @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
   tab      w     l     y     p     b     z     f     o     u     '     [     ]     \
   caps       @c    @r    @s    @t    g     m     @n    @e    @i    @a    '       ret
   q             j     v     d     k     _     x     h     /     ,     .         rsft
   lctl  lmet  @esc                     @spc               @ret   rmet
+)
+
+(deflayer qwerty
+  @grl  1     2     3     4     5     6     7     8     9     0     -     =     bspc
+  tab      q     w     e     r     t     y     u     i     o     p     [     ]     \
+  caps       a     s     d     f     g     h     j     k     l     ;     '       ret
+  lsft          z     x     c     v     b     n     m     ,     .     /         rsft
+  lctl  lmet  lalt                     @spc               ralt   rmet
 )
 
 (deflayer control
